@@ -24,11 +24,10 @@ public class PIMTests extends BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        // Logout sau mỗi test
         dashboardPage.logout();
     }
 
-    @Test
+    @Test(priority = 1, description = "Add new employee with auto-generated ID")
     public void testAddNewEmployee() {
         AddEmployeePage addEmployeePage = pimPage.navigateToAddEmployeePage();
         String firstName = "John";
@@ -37,7 +36,7 @@ public class PIMTests extends BaseTest {
         Assert.assertEquals(addEmployeePage.getPersonalDetailsHeaderText(), "Personal Details");
     }
 
-    @Test
+    @Test(priority = 2, description = "Search employee by Employee ID")
     public void testSearchEmployeeById() {
         EmployeeListPage employeeListPage = pimPage.navigateToEmployeeList();
         String employeeId = employeeListPage.getFirstEmployeeId();
@@ -46,7 +45,7 @@ public class PIMTests extends BaseTest {
         Assert.assertEquals(employeeListPage.getFirstEmployeeId(), employeeId);
     }
 
-    @Test
+    @Test(priority = 3, description = "Delete employee and verify removal from system")
     public void testDeleteEmployeeSuccessfully() {
         AddEmployeePage addEmployeePage = pimPage.navigateToAddEmployeePage();
         String firstName = "John";
