@@ -59,6 +59,6 @@ public class PIMTests extends BaseTest {
         employeeListPage.searchByName(fullName);
         employeeListPage.deleteFirstEmployee();
         employeeListPage.searchByName(fullName); // Search lại với fullName
-        Assert.assertTrue(employeeListPage.isNoRecordsFound(), "Vẫn tìm thấy bản ghi sau khi xóa: " + fullName);
+        Assert.assertTrue(employeeListPage.isNoRecordsFound(), "Still found the record after deletion: " + fullName);
     }
 }
